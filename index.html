@@ -4,26 +4,28 @@
 	<meta charset="utf-8">
 	<script>
 		function setSearchEngine() {
+			let searchBar = document.querySelector("input[name=q]");
+			if (searchBar.value === ""){
+				alert("Search term required.");
+				event.preventDefault();
+				} 
 			let actions = {
 				"google": "https://www.google.com",
 				"duckDuckGo": "https://duckduckgo.com",
 				"bing": "https://www.bing.com",
 				"ask": "https://www.ask.com"
 			}
-			let searchBar = document.querySelector("input[name=q]");
 			let engineSelection = document.querySelector("input[name=engine]:checked");
 			let engine = actions[engineSelection.value];
 			let form = document.getElementById('searchForm');
-			if (searchBar === "" || engine == null){
-				alert("Search term & engine selection both required.");
-				event.preventDefault();
-			}
 			form.setAttribute("action", engine)
 		}
     window.addEventListener("load", function(){
 		let form = document.getElementById('searchForm');
 		form.addEventListener("submit", setSearchEngine);
     });
+
+
 
 	</script>
 </head>
