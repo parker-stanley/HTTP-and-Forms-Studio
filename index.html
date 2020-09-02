@@ -5,8 +5,9 @@
 	<script>
 		function setSearchEngine() {
 			let searchBar = document.querySelector("input[name=q]");
-			if (searchBar.value === ""){
-				alert("Search term required.");
+			let engineSelection = document.querySelector("input[name=engine]:checked");
+			if (searchBar.value === "" || engineSelection === null){
+				alert("Search term and engine selection are both required.");
 				event.preventDefault();
 				} 
 			let actions = {
@@ -15,7 +16,6 @@
 				"bing": "https://www.bing.com",
 				"ask": "https://www.ask.com"
 			}
-			let engineSelection = document.querySelector("input[name=engine]:checked");
 			let engine = actions[engineSelection.value];
 			let form = document.getElementById('searchForm');
 			form.setAttribute("action", engine)
