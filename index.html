@@ -6,7 +6,7 @@
 		function setSearchEngine() {
 			let searchBar = document.querySelector("input[name=q]");
 			let engineSelection = document.querySelector("input[name=engine]:checked");
-			if (searchBar.value === "" || engineSelection === null){
+			if (searchBar.value === "" || engineSelection.value === null){
 				alert("Search term and engine selection are both required.");
 				event.preventDefault();
 				} 
